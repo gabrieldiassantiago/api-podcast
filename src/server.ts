@@ -1,15 +1,22 @@
 import * as http from 'http';
-import { getListEpisodes } from './controllers/podcasts.controller';
+import { getFilteredEpisodes, getListEpisodes } from './controllers/podcasts.controller';
+import { Routes } from './routes/routes';
+import { HttpMethods } from './utils/http-methods';
 
-const server = http.createServer(async (req : http.IncomingMessage, res: http.ServerResponse) => {
-    
-    if (req.url === '/episodes' && req.method === 'GET') {
-        await getListEpisodes(req, res);
+const server = http.createServer(async (request : http.IncomingMessage, response: http.ServerResponse) => {
+
+
+    const [baseUrl, querystring] = request.url?.split('?') || [];
+
+    if (baseUrl === Routes.LISTAR_PODCAST && HttpMethods.GET === request.method) {
+        await getListEpisodes(request, response);
+    }
+
+    if (baseUrl === Routes.PODCAST_EPISODE && HttpMethods.GET === request.method) {
+        await getFilteredEpisodes(request, response);
     }
 
 });
-
-
 
 server.listen(3000, () => {
     console.log('Servidor rodando em http://localhost:3000');

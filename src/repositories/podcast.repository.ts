@@ -1,20 +1,18 @@
-import fs from 'fs';
-import path from "path";
+import fs from 'fs'; //file system module (ler e escrever arquivos)
+import path from 'path'; //path module
 import { PodcastEpisode } from '../models/podcast-model';
 
-const pathData = path.join(__dirname, 'podcast.json');
+const pathData = path.join(__dirname, ".././repositories/podcast.json"); //path to the data file
 
-export const getPodCastData = async (podcastName?:string) : Promise<PodcastEpisode[]> => {
-    if (!fs.existsSync(pathData)) {
-        throw new Error('Podcast data file not found');
-    }
+export const repositoryPodcast = async (podcastName?: string) : Promise<PodcastEpisode[]> =>  {
     const data = fs.readFileSync(pathData, 'utf-8');
+    let jsonFile = JSON.parse(data); 
 
     if (podcastName) {
-        const episodes = JSON.parse(data) as PodcastEpisode[];
-        return episodes.filter(episode => episode.podcastName === podcastName);
+        jsonFile = jsonFile.filter((episode: PodcastEpisode) => episode.podcastName === podcastName);
+        return jsonFile;
     }
-
-    return JSON.parse(data) as PodcastEpisode[];
-
+    
+    return jsonFile;
 }
+

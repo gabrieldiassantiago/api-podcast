@@ -1,13 +1,12 @@
-import { getPodCastData } from "../repositories/podcast.repository";
+import { IncomingMessage } from "http";
+import { repositoryPodcast } from "../repositories/podcast.repository"
 
-export const serviceListEpisodes = async (podcastName: string) => {
-    const data = await getPodCastData();
+export const serviceFilterEpisodes = async (
+    podcastName: string | undefined) => {
 
-    if (podcastName) {
-        return data.filter(episode => episode.podcastName === podcastName);
-    }
+    const querystring = podcastName?.split('?p=')[1];
 
-    return data;
-
-
+    const data = await repositoryPodcast(querystring);
+    const filteredEpisodes = data.filter(episode => episode.podcastName === querystring);
+    return filteredEpisodes;
 }

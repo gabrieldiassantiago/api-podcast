@@ -1,6 +1,6 @@
 export interface PodcastEpisode {
     podcastName: string;
-    episodeTitle: string;
+    episode: string;
     videoId: string;
     categories: string[];
 }
