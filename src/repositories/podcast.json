@@ -1,0 +1,14 @@
+ [
+        {
+            "podcastName": "Podcast Example",
+            "episodeTitle": "Episode 1",
+            "videoId": "12345",
+            "categories": ["Technology", "Education"]
+        },
+        {
+            "podcastName": "Another Podcast",
+            "episodeTitle": "Episode 2",
+            "videoId": "67890",
+            "categories": ["Health", "Wellness"]
+        }
+    ]
