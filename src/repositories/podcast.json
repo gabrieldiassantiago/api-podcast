@@ -22,5 +22,29 @@
             "episodeTitle": "Episode 4",
             "videoId": "fghij",
             "categories": ["Health", "Lifestyle"]
+        },
+        {
+            "podcastName": "Learning Hub",
+            "episodeTitle": "Episode 5",
+            "videoId": "klmno",
+            "categories": ["Education", "Learning"]
+        },
+        {
+            "podcastName": "Tech Innovations",
+            "episodeTitle": "Episode 6",
+            "videoId": "pqrst",
+            "categories": ["Technology", "Innovation"]
+        },
+        {
+            "podcastName": "Future of Tech",
+            "episodeTitle": "Episode 7",
+            "videoId": "uvwxy",
+            "categories": ["Technology", "Future"]
+        },
+        {
+            "podcastName": "Health Matters",
+            "episodeTitle": "Episode 8",
+            "videoId": "zabcd",
+            "categories": ["Health", "Medicine"]
         }
     ]
