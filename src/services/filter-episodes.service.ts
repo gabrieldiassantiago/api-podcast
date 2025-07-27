@@ -27,7 +27,11 @@ export const serviceFilterEpisodes = async (
     if (!querystring) {
         responseFormat.statusCode = StatusCode.BadRequest;
         responseFormat.body = [];
-        return responseFormat;
+        //retornar mensagem de erro com "querystring não fornecida" para o usuário
+        return {
+            statusCode: StatusCode.BadRequest,
+            body: []
+        }
     }
 
     responseFormat.body = data;
