@@ -23,6 +23,13 @@ export const serviceFilterEpisodes = async (
         responseFormat.body = [];
     }
 
+    //se não houver querystring, retorna erro
+    if (!querystring) {
+        responseFormat.statusCode = StatusCode.BadRequest;
+        responseFormat.body = [];
+        return responseFormat;
+    }
+
     responseFormat.body = data;
 
     return responseFormat;
